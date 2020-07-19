@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7D2D4F24C471630096754F /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D4E24C471630096754F /* String+MD5.swift */; };
+		0E7D2D5524C473380096754F /* HeroesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5424C473380096754F /* HeroesRepository.swift */; };
+		0E7D2D5824C473500096754F /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5724C473500096754F /* MarvelService.swift */; };
+		0E7D2D5A24C473580096754F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5924C473580096754F /* CoreDataService.swift */; };
+		0E7D2D5C24C474410096754F /* HeroesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5B24C474410096754F /* HeroesEndpoints.swift */; };
 		0EA78FE724C30EED00B09326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA78FE624C30EED00B09326 /* AppDelegate.swift */; };
 		0EA78FE924C30EED00B09326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA78FE824C30EED00B09326 /* SceneDelegate.swift */; };
 		0EA78FEB24C30EED00B09326 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA78FEA24C30EED00B09326 /* ViewController.swift */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E7D2D4E24C471630096754F /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		0E7D2D5424C473380096754F /* HeroesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesRepository.swift; sourceTree = "<group>"; };
+		0E7D2D5724C473500096754F /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
+		0E7D2D5924C473580096754F /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		0E7D2D5B24C474410096754F /* HeroesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesEndpoints.swift; sourceTree = "<group>"; };
 		0EA78FE324C30EED00B09326 /* HeroesLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA78FE624C30EED00B09326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA78FE824C30EED00B09326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E7D2D4D24C4714E0096754F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0E7D2D4E24C471630096754F /* String+MD5.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0E7D2D5624C4733B0096754F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0E7D2D5724C473500096754F /* MarvelService.swift */,
+				0E7D2D5924C473580096754F /* CoreDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0EA78FDA24C30EED00B09326 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +132,7 @@
 		0EA78FE524C30EED00B09326 /* HeroesLeague */ = {
 			isa = PBXGroup;
 			children = (
+				0E7D2D4D24C4714E0096754F /* Common */,
 				0EA7901C24C30F3B00B09326 /* Storyboard */,
 				0EA7901B24C30F1F00B09326 /* Network */,
 				0EA7901A24C30F0F00B09326 /* Repository */,
@@ -162,6 +190,8 @@
 		0EA7901A24C30F0F00B09326 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				0E7D2D5624C4733B0096754F /* Services */,
+				0E7D2D5424C473380096754F /* HeroesRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -189,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				0EA7902224C3151E00B09326 /* Endpoint.swift */,
+				0E7D2D5B24C474410096754F /* HeroesEndpoints.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -326,10 +357,15 @@
 			files = (
 				0EA78FEB24C30EED00B09326 /* ViewController.swift in Sources */,
 				0EA78FE724C30EED00B09326 /* AppDelegate.swift in Sources */,
+				0E7D2D5A24C473580096754F /* CoreDataService.swift in Sources */,
+				0E7D2D4F24C471630096754F /* String+MD5.swift in Sources */,
 				0EA7901E24C30FB400B09326 /* Requester.swift in Sources */,
+				0E7D2D5824C473500096754F /* MarvelService.swift in Sources */,
 				0EA7902024C313B000B09326 /* Reachability.swift in Sources */,
 				0EA7902324C3151E00B09326 /* Endpoint.swift in Sources */,
 				0EA78FE924C30EED00B09326 /* SceneDelegate.swift in Sources */,
+				0E7D2D5C24C474410096754F /* HeroesEndpoints.swift in Sources */,
+				0E7D2D5524C473380096754F /* HeroesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

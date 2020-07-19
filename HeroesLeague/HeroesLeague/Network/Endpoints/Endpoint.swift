@@ -16,3 +16,40 @@ protocol Endpoint {
     var request: URLRequest { get }
     var queryItems: [URLQueryItem]? { get }
 }
+
+extension Endpoint {
+    
+    private var infoList: [String: Any] {
+        guard let infoList = Bundle.main.infoDictionary else {
+            return .init()
+        }
+        
+        return infoList
+    }
+    
+    var baseURL: String {
+        
+        guard let url = infoList["BASE_URL"] as? String else {
+            return .init()
+        }
+        
+        return url
+    }
+    
+    var publicKey: String {
+        guard let publicKey = infoList["PUBLIC_KEY"] as? String else {
+            return .init()
+        }
+        
+        return publicKey
+    }
+    
+    var hash: String {
+        guard let privateKey = infoList["PRIVATE_KEY"] as? String else {
+            return .init()
+        }
+        
+        return "\(Date().timeIntervalSince1970.description)\(privateKey)\(publicKey)".md5()
+    }
+    
+}
