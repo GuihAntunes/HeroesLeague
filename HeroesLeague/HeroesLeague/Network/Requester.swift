@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias RequesterCompletion = (Codable?, Error?) -> Void
+typealias RequesterCompletion<C:Codable> = (C?, Error?) -> Void
 
 enum CustomError: Error {
     case connectionError(String)
@@ -24,13 +24,13 @@ class Requester {
     let decoder: JSONDecoder
     let session: URLSession
     
-    init(connectionChecker: Reachability = Reachability(), decoder: JSONDecoder = JSONDecoder(), session: URLSession = URLSession.shared) {
+    init(connectionChecker: Reachability = .init(), decoder: JSONDecoder = .init(), session: URLSession = URLSession.shared) {
         self.decoder = decoder
         self.session = session
         self.connectionChecker = connectionChecker
     }
     
-    func request<T: Codable>(model: T.Type, _ request: URLRequest, completion: @escaping RequesterCompletion) {
+    func request<T: Codable>(model: T.Type, _ request: URLRequest, completion: @escaping RequesterCompletion<T>) {
             
             session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
                 

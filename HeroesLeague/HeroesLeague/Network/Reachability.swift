@@ -10,6 +10,8 @@ import Foundation
 import SystemConfiguration
 
 class Reachability {
+    
+    // This is a checker that I use for a while now and, honestly, I don't remember the reference to insert here
     var isConnected: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)

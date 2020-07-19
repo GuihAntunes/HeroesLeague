@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum HeroesEndpoint: Endpoint {
+enum HeroesEndpoints: Endpoint {
     
     case list(lastIndex: Int)
     case heroDetail(heroId: Int)
