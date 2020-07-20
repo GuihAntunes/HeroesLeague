@@ -48,9 +48,10 @@ enum HeroesEndpoints: Endpoint {
     }
     
     var queryItems: [URLQueryItem]? {
-        let timeStamp = URLQueryItem(name: "ts", value: Date().timeIntervalSince1970.description)
-        let hashValue = URLQueryItem(name: "hash", value: hash)
-        let apiKey = URLQueryItem(name: "apyKey", value: publicKey)
+        let ts = Date().timeIntervalSince1970.description
+        let timeStamp = URLQueryItem(name: "ts", value: ts)
+        let hashValue = URLQueryItem(name: "hash", value: "\(ts)\(privateKey)\(publicKey)".md5())
+        let apiKey = URLQueryItem(name: "apikey", value: publicKey)
         var items = [timeStamp, apiKey, hashValue]
         switch self {
         case .list(let lastIndex):

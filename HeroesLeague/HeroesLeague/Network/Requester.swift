@@ -49,6 +49,16 @@ class Requester {
                     return
                 }
                 
+                guard error == nil else {
+                    completion(nil, CustomError.APIError(error?.localizedDescription ?? "Ocorreu um erro inesperado, por favor, tente novamente!"))
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    completion(nil, CustomError.APIError(error?.localizedDescription ?? "Ocorreu um erro inesperado, por favor, tente novamente!"))
+                    return
+                }
+                
                 guard let model = try? _self.decoder.decode(T.self, from: data) else {
                     completion(nil, CustomError.mappingError("Error on parsing model \(T.self)!"))
                     return

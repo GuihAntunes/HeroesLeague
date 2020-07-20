@@ -19,13 +19,15 @@ class HeroesRepository: HeroesRepositoryProtocol {
     }
     
     func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
-        marvelService.fetchHeroesList(lastIndex: index) { [weak self] (response, error) in
-            if error != nil && !Reachability().isConnected {
-                self?.coreDataService.fetchHeroesList(lastIndex: index, completion: completion)
-                return
+        DispatchQueue.global().async {
+            self.marvelService.fetchHeroesList(lastIndex: index) { [weak self] (response, error) in
+                if error != nil && !Reachability().isConnected {
+                    self?.coreDataService.fetchHeroesList(lastIndex: index, completion: completion)
+                    return
+                }
+                
+                completion(response, error)
             }
-            
-            completion(response, error)
         }
     }
     

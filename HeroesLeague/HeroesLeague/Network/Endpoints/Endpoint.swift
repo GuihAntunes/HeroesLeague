@@ -44,12 +44,12 @@ extension Endpoint {
         return publicKey
     }
     
-    var hash: String {
+    var privateKey: String {
         guard let privateKey = infoList["PRIVATE_KEY"] as? String else {
             return .init()
         }
         
-        return "\(Date().timeIntervalSince1970.description)\(privateKey)\(publicKey)".md5()
+        return privateKey
     }
     
 }
