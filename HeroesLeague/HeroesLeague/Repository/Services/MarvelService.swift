@@ -9,8 +9,8 @@
 import Foundation
 
 protocol HeroesRepositoryProtocol: class {
-    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>)
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>)
+    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
+    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
 }
 
 class MarvelService: HeroesRepositoryProtocol {
@@ -21,12 +21,16 @@ class MarvelService: HeroesRepositoryProtocol {
         self.requester = requester
     }
     
-    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
-        requester.request(model: MarvelServiceResponse.self, HeroesEndpoints.list(lastIndex: index).request, completion: completion)
+    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
+        requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.list(lastIndex: index).request, completion: completion)
     }
     
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
-        requester.request(model: MarvelServiceResponse.self, HeroesEndpoints.heroDetail(heroId: id).request, completion: completion)
+    func fetchHeroDetails(forHero heroId: Int) {
+        
+    }
+    
+    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
+        requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.heroDetail(heroId: id).request, completion: completion)
     }
     
 }

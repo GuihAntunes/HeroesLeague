@@ -18,7 +18,7 @@ class HeroesRepository: HeroesRepositoryProtocol {
         self.coreDataService = coreDataService
     }
     
-    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
+    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
         DispatchQueue.global().async {
             self.marvelService.fetchHeroesList(lastIndex: index) { [weak self] (response, error) in
                 if error != nil && !Reachability().isConnected {
@@ -31,7 +31,7 @@ class HeroesRepository: HeroesRepositoryProtocol {
         }
     }
     
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
+    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
         marvelService.fetchHeroesDetail(heroID: id) { [weak self] (response, error) in
             if error != nil && !Reachability().isConnected {
                 self?.coreDataService.fetchHeroesDetail(heroID: id, completion: completion)

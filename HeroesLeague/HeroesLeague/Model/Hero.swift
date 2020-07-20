@@ -16,9 +16,9 @@ class Hero: Codable {
     let modified : String?
     let thumbnail : Thumbnail?
     let resourceURI : String?
-    let comics : Comics?
-    let series : Series?
-    let stories : Stories?
-    let events : Events?
+    let comics : Resource?
+    let series : Resource?
+    let stories : Resource?
+    let events : Resource?
     
 }

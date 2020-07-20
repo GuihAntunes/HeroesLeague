@@ -1,5 +1,5 @@
 //
-//  Comics.swift
+//  HeroAppearance.swift
 //  HeroesLeague
 //
 //  Created by Guilherme Antunes Ferreira on 19/07/2020.
@@ -8,11 +8,10 @@
 
 import Foundation
 
-struct Comics : Codable {
+struct HeroAppearance : Codable {
     
-	let available : Int?
-	let collectionURI : String?
-	let items : [Items]?
-	let returned : Int?
+	let id : Int?
+	let title : String?
+	let description : String?
 
 }

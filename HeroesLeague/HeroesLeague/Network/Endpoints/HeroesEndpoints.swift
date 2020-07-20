@@ -12,6 +12,10 @@ enum HeroesEndpoints: Endpoint {
     
     case list(lastIndex: Int)
     case heroDetail(heroId: Int)
+    case comics(heroId: Int)
+    case events(heroId: Int)
+    case stories(heroId: Int)
+    case series(heroId: Int)
     
     var path: String {
         switch self {
@@ -20,6 +24,18 @@ enum HeroesEndpoints: Endpoint {
             
         case .heroDetail(let heroId):
             return baseURL + "/v1/public/characters/" + String(heroId)
+            
+        case .comics(let heroId):
+            return baseURL + "/v1/public/characters/" + String(heroId) + "/comics"
+            
+        case .events(let heroId):
+            return baseURL + "/v1/public/characters/" + String(heroId) + "/events"
+            
+        case .stories(let heroId):
+            return baseURL + "/v1/public/characters/" + String(heroId) + "/stories"
+            
+        case .series(let heroId):
+            return baseURL + "/v1/public/characters/" + String(heroId) + "/series"
         }
     }
     
@@ -39,10 +55,7 @@ enum HeroesEndpoints: Endpoint {
     
     var httpMethod: String {
         switch self {
-        case .list:
-            return "GET"
-            
-        case .heroDetail:
+        default:
             return "GET"
         }
     }
@@ -60,6 +73,9 @@ enum HeroesEndpoints: Endpoint {
             items.append(limit)
             items.append(lastIndexQueryItem)
             
+        case .comics, .events, .stories, .series:
+            let limit = URLQueryItem(name: "limit", value: String(3))
+            items.append(limit)
         default:
             break
         }

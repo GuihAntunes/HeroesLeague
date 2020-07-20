@@ -34,7 +34,7 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
             if let heroes = response?.data?.results, error == nil {
                 self?.heroes.append(contentsOf: heroes)
                 self?.view?.reloadList()
-                self?.lastIndexFetched = heroes.count
+                self?.lastIndexFetched = self?.heroes.count ?? .init()
                 return
             }
         })

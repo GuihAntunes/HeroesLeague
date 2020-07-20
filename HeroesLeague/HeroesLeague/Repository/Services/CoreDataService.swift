@@ -11,11 +11,11 @@ import Foundation
 
 class CoreDataService: HeroesRepositoryProtocol {
     
-    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
+    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
         
     }
     
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelServiceResponse>) {
+    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
         
     }
     

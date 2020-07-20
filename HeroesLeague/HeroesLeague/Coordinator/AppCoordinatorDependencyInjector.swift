@@ -29,11 +29,24 @@ class AppCoordinatorDependencyInjector {
         return controller
     }()
     
+    lazy var heroDetailViewController: HeroDetailViewController = {
+        let controller: HeroDetailViewController = .instantiate()
+        heroDetailViewModel.view = controller
+        controller.viewModel = heroDetailViewModel
+        return controller
+    }()
+    
     // MARK: - View Models
     
     lazy var heroesListViewModel: HeroesListViewModel = {
         let viewModel: HeroesListViewModel = .init()
         viewModel.repository = HeroesRepository()
+        return viewModel
+    }()
+    
+    lazy var heroDetailViewModel: HeroDetailViewModel = {
+        let viewModel: HeroDetailViewModel = .init()
+        viewModel.selectedHero = heroesListViewModel.selectedHero
         return viewModel
     }()
 }
