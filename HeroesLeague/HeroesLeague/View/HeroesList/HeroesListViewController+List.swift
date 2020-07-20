@@ -11,15 +11,25 @@ import UIKit
 extension HeroesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return viewModel?.numberOfSections() ?? .init()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.numberOfItemsInSection(section) ?? .init()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return .init()
+        let cell: HeroTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        
+        if let totalItems = viewModel?.numberOfItemsInSection(indexPath.section), indexPath.row >= totalItems - 1 {
+            viewModel?.loadHeroes()
+        }
+        
+        if let hero = viewModel?.getHero(atIndexPath: indexPath) {
+            cell.setupCell(withHero: hero)
+        }
+        
+        return cell
     }
     
 }

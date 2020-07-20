@@ -18,10 +18,49 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-zX-9rL">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HeroTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeroTableViewCell" rowHeight="100" id="KKu-Re-Ft1" customClass="HeroTableViewCell" customModule="HeroesLeague" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KKu-Re-Ft1" id="leB-Ae-alz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-qj-wp5">
+                                                    <rect key="frame" x="12" y="15" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="CfJ-E2-PZs"/>
+                                                        <constraint firstAttribute="width" constant="70" id="HGW-js-2bj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-h2-koA">
+                                                    <rect key="frame" x="94" y="39.5" width="308" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CpX-qj-wp5" firstAttribute="leading" secondItem="leB-Ae-alz" secondAttribute="leading" constant="12" id="TBf-Dx-xmm"/>
+                                                <constraint firstItem="H1C-h2-koA" firstAttribute="centerY" secondItem="CpX-qj-wp5" secondAttribute="centerY" id="TcG-GN-1MZ"/>
+                                                <constraint firstItem="H1C-h2-koA" firstAttribute="leading" secondItem="CpX-qj-wp5" secondAttribute="trailing" constant="12" id="gJf-Kv-lhr"/>
+                                                <constraint firstAttribute="bottom" secondItem="CpX-qj-wp5" secondAttribute="bottom" constant="15" id="omN-XR-OYU"/>
+                                                <constraint firstItem="CpX-qj-wp5" firstAttribute="top" secondItem="leB-Ae-alz" secondAttribute="top" constant="15" id="trp-aX-Szx"/>
+                                                <constraint firstItem="CpX-qj-wp5" firstAttribute="centerY" secondItem="leB-Ae-alz" secondAttribute="centerY" id="xPL-7w-upg"/>
+                                                <constraint firstAttribute="trailing" secondItem="H1C-h2-koA" secondAttribute="trailing" constant="12" id="yw9-03-nCL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="heroNameLabel" destination="H1C-h2-koA" id="Mta-uO-itf"/>
+                                            <outlet property="heroThumbnail" destination="CpX-qj-wp5" id="ajO-3R-sWu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rls-zX-9rL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="La8-eJ-dPt"/>
                             <constraint firstAttribute="bottom" secondItem="Rls-zX-9rL" secondAttribute="bottom" id="N5X-Hq-Ggh"/>
@@ -36,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

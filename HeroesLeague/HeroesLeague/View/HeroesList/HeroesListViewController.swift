@@ -20,6 +20,7 @@ class HeroesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +32,10 @@ class HeroesListViewController: UIViewController {
     private func setupTableView() {
         listTableView.delegate = self
         listTableView.dataSource = self
+    }
+    
+    private func setupView() {
+        title = viewModel?.getTitle()
     }
     
     private func loadData() {

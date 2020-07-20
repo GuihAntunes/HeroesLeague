@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E7CF95E24C5DE9B0029EBC7 /* HeroesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */; };
 		0E7CF96024C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */; };
+		0E7CF96424C5FFB20029EBC7 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */; };
 		0E7D2D4F24C471630096754F /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D4E24C471630096754F /* String+MD5.swift */; };
 		0E7D2D5524C473380096754F /* HeroesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5424C473380096754F /* HeroesRepository.swift */; };
 		0E7D2D5824C473500096754F /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D2D5724C473500096754F /* MarvelService.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewModel.swift; sourceTree = "<group>"; };
 		0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroesListViewController+Presentable.swift"; sourceTree = "<group>"; };
+		0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		0E7D2D4E24C471630096754F /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0E7D2D5424C473380096754F /* HeroesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesRepository.swift; sourceTree = "<group>"; };
 		0E7D2D5724C473500096754F /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
@@ -130,14 +132,14 @@
 			path = HeroesList;
 			sourceTree = "<group>";
 		};
-		0E7D2D4D24C4714E0096754F /* Common */ = {
+		0E7D2D4D24C4714E0096754F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0E7D2D4E24C471630096754F /* String+MD5.swift */,
 				0E7D2D7924C5B6FB0096754F /* UIViewController+ReusableElements.swift */,
 				0E7D2D7B24C5B7260096754F /* Identifiable.swift */,
 			);
-			path = Common;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0E7D2D5624C4733B0096754F /* Services */ = {
@@ -164,6 +166,7 @@
 				0E7D2D7E24C5DAD20096754F /* HeroesListViewController.swift */,
 				0E7D2D8124C5DC780096754F /* HeroesListViewController+List.swift */,
 				0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */,
+				0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */,
 				0EA78FEC24C30EED00B09326 /* HeroesList.storyboard */,
 			);
 			path = HeroesList;
@@ -193,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				0E7D2D7424C5B5BC0096754F /* Coordinator */,
-				0E7D2D4D24C4714E0096754F /* Common */,
+				0E7D2D4D24C4714E0096754F /* Extensions */,
 				0EA7901B24C30F1F00B09326 /* Network */,
 				0EA7901A24C30F0F00B09326 /* Repository */,
 				0EA7901924C30F0700B09326 /* Model */,
@@ -420,6 +423,7 @@
 				0E7D2D7824C5B6450096754F /* AppCoordinatorDependencyInjector.swift in Sources */,
 				0E7D2D6024C4858F0096754F /* HeroesList.swift in Sources */,
 				0EA78FE724C30EED00B09326 /* AppDelegate.swift in Sources */,
+				0E7CF96424C5FFB20029EBC7 /* HeroTableViewCell.swift in Sources */,
 				0E7D2D5A24C473580096754F /* CoreDataService.swift in Sources */,
 				0E7D2D4F24C471630096754F /* String+MD5.swift in Sources */,
 				0E7D2D6C24C48A8A0096754F /* Events.swift in Sources */,

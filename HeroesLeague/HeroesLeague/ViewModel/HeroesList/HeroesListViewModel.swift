@@ -9,6 +9,7 @@
 import UIKit
 
 protocol HeroesListViewModelProtocol: class {
+    func getTitle() -> String
     func loadHeroes()
     func selectHero(atIndexPath indexPath: IndexPath)
     func numberOfSections() -> Int
@@ -23,15 +24,17 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     var coordinator: AppCoordinatorProtocol?
     var repository: HeroesRepositoryProtocol?
     weak var view: HeroesListPresentable?
-    var lastIndex: Int = 0
+    var lastIndexFetched: Int = 0
     
+    // MARK: - Protocol Methods
     func loadHeroes() {
         self.view?.startLoading()
-        repository?.fetchHeroesList(lastIndex: lastIndex, completion: { [weak self] (response, error) in
+        repository?.fetchHeroesList(lastIndex: lastIndexFetched, completion: { [weak self] (response, error) in
             self?.view?.stopLoading()
             if let heroes = response?.data?.results, error == nil {
-                self?.heroes = heroes
+                self?.heroes.append(contentsOf: heroes)
                 self?.view?.reloadList()
+                self?.lastIndexFetched = heroes.count
                 return
             }
         })
@@ -51,5 +54,9 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     
     func getHero(atIndexPath indexPath: IndexPath) -> Hero {
         return heroes[indexPath.row]
+    }
+    
+    func getTitle() -> String {
+        return "Heroes League"
     }
 }
