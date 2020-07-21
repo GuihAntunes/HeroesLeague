@@ -44,4 +44,17 @@ class HeroesRepository: HeroesRepositoryProtocol {
         }
     }
     
+    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
+        DispatchQueue.global().async {
+            self.marvelService.searchHero(withName: name) { [weak self] (response, error) in
+                if error != nil && !Reachability().isConnected {
+                    self?.coreDataService.searchHero(withName: name, completion: completion)
+                    return
+                }
+                
+                completion(response, error)
+            }
+        }
+    }
+    
 }

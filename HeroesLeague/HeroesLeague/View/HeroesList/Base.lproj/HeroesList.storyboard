@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-zX-9rL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HeroTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeroTableViewCell" rowHeight="100" id="KKu-Re-Ft1" customClass="HeroTableViewCell" customModule="HeroesLeague" customModuleProvider="target">
@@ -59,18 +59,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="ben-dQ-0J6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rls-zX-9rL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="La8-eJ-dPt"/>
                             <constraint firstAttribute="bottom" secondItem="Rls-zX-9rL" secondAttribute="bottom" id="N5X-Hq-Ggh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rls-zX-9rL" secondAttribute="trailing" id="Tk9-eD-HME"/>
+                            <constraint firstItem="ben-dQ-0J6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="U8B-ub-Goj"/>
                             <constraint firstItem="Rls-zX-9rL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WHp-yL-DLb"/>
+                            <constraint firstItem="ben-dQ-0J6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k9B-Kv-tmQ"/>
+                            <constraint firstItem="ben-dQ-0J6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pVW-zc-kCV"/>
+                            <constraint firstItem="Rls-zX-9rL" firstAttribute="top" secondItem="ben-dQ-0J6" secondAttribute="bottom" id="waH-1P-aIq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="listTableView" destination="Rls-zX-9rL" id="nX0-bt-uOM"/>
+                        <outlet property="searchBar" destination="ben-dQ-0J6" id="WCx-9g-aD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

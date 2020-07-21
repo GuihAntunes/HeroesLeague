@@ -87,8 +87,7 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     
     // MARK: - Private Methods
     
-    private func setupDetailsLists(withLists lists: [MarvelCharacterDetailsResponse?]?) {
-        guard let lists = lists else { return }
+    private func setupDetailsLists(withLists lists: [MarvelCharacterDetailsResponse?]) {
         lists.forEach({
             guard let response = $0, let details = response.data?.results, let firstDetail = details.first?.resourceURI else { return }
             
@@ -114,8 +113,13 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
         guard let hero = hero, let heroId = hero.id else { return }
         view?.startLoading()
         repository?.fetchHeroDetails(forHero: heroId, completion: { [weak self] (response, error) in
-            self?.setupDetailsLists(withLists: response)
-            self?.view?.reloadList()
+            if error == nil, let response = response {
+                self?.setupDetailsLists(withLists: response)
+                self?.view?.reloadList()
+                return
+            }
+            
+            self?.view?.showError(error ?? CustomError.generalError("Unexpected error!"))
         })
     }
 }

@@ -11,6 +11,7 @@ import Foundation
 enum HeroesEndpoints: Endpoint {
     
     case list(lastIndex: Int)
+    case searchHero(name: String)
     case heroDetail(heroId: Int)
     case comics(heroId: Int)
     case events(heroId: Int)
@@ -36,6 +37,9 @@ enum HeroesEndpoints: Endpoint {
             
         case .series(let heroId):
             return baseURL + "/v1/public/characters/" + String(heroId) + "/series"
+            
+        case .searchHero:
+            return baseURL + "/v1/public/characters"
         }
     }
     
@@ -76,6 +80,10 @@ enum HeroesEndpoints: Endpoint {
         case .comics, .events, .stories, .series:
             let limit = URLQueryItem(name: "limit", value: String(3))
             items.append(limit)
+            
+        case .searchHero(let name):
+            let nameQuery = URLQueryItem(name: "name", value: name)
+            items.append(nameQuery)
         default:
             break
         }

@@ -11,6 +11,11 @@ import Foundation
 
 class CoreDataService: HeroesRepositoryProtocol {
     
+    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
+        
+    }
+    
+    
     func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>) {
         
     }

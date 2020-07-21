@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E483D3124C711CE00ABA516 /* HeroesListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E483D3024C711CE00ABA516 /* HeroesListViewController+SearchBar.swift */; };
 		0E7CF95E24C5DE9B0029EBC7 /* HeroesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */; };
 		0E7CF96024C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */; };
 		0E7CF96424C5FFB20029EBC7 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E483D3024C711CE00ABA516 /* HeroesListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroesListViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewModel.swift; sourceTree = "<group>"; };
 		0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroesListViewController+Presentable.swift"; sourceTree = "<group>"; };
 		0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				0EA78FEC24C30EED00B09326 /* HeroesList.storyboard */,
 				0E7D2D7E24C5DAD20096754F /* HeroesListViewController.swift */,
+				0E483D3024C711CE00ABA516 /* HeroesListViewController+SearchBar.swift */,
 				0E7D2D8124C5DC780096754F /* HeroesListViewController+List.swift */,
 				0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */,
 				0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */,
@@ -469,6 +472,7 @@
 				0EA7902324C3151E00B09326 /* Endpoint.swift in Sources */,
 				0E7D2D7024C48D090096754F /* GenericServiceResponse.swift in Sources */,
 				0E7D2D5C24C474410096754F /* HeroesEndpoints.swift in Sources */,
+				0E483D3124C711CE00ABA516 /* HeroesListViewController+SearchBar.swift in Sources */,
 				0E7D2D6224C488FA0096754F /* Hero.swift in Sources */,
 				0E7D2D7A24C5B6FB0096754F /* UIViewController+ReusableElements.swift in Sources */,
 				0E7CF97024C615AF0029EBC7 /* HeroDetailViewModel.swift in Sources */,

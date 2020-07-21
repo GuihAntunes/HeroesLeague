@@ -12,6 +12,7 @@ protocol HeroDetailPresentable: class {
     func reloadList()
     func stopLoading()
     func startLoading()
+    func showError(_ error: Error)
 }
 
 extension HeroDetailViewController: HeroDetailPresentable {
@@ -32,6 +33,13 @@ extension HeroDetailViewController: HeroDetailPresentable {
         DispatchQueue.main.async {
             self.detailsListTableView.reloadData()
             self.stopLoading()
+        }
+    }
+    
+    func showError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.removeBlurLoading()
+            self.alert(message: error.localizedDescription)
         }
     }
     

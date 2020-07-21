@@ -11,6 +11,7 @@ import Foundation
 protocol HeroesRepositoryProtocol: class {
     func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
     func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>)
+    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
 }
 
 class MarvelService: HeroesRepositoryProtocol {
@@ -42,6 +43,10 @@ class MarvelService: HeroesRepositoryProtocol {
         group.notify(queue: .global()) {
             completion(completions, lastError)
         }
+    }
+    
+    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
+        requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.searchHero(name: name).request, completion: completion)
     }
     
 }

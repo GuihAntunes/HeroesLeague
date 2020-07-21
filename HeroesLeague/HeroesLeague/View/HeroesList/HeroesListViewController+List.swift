@@ -21,7 +21,7 @@ extension HeroesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HeroTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         
-        if let totalItems = viewModel?.numberOfItemsInSection(indexPath.section), indexPath.row >= totalItems - 1 {
+        if let totalItems = viewModel?.numberOfItemsInSection(indexPath.section), indexPath.row >= totalItems - 1, !searchIsActive {
             viewModel?.loadHeroes()
         }
         

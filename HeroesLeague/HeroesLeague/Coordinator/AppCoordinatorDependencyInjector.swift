@@ -14,7 +14,7 @@ class AppCoordinatorDependencyInjector {
     
     lazy var navigationController: UINavigationController = {
         let navigation = UINavigationController()
-        navigation.navigationBar.prefersLargeTitles = true
+        navigation.navigationBar.prefersLargeTitles = false
         navigation.navigationBar.barStyle = .black
         navigation.navigationBar.tintColor = .white
         return navigation

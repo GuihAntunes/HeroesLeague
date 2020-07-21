@@ -15,6 +15,7 @@ protocol HeroesListViewModelProtocol: class {
     func numberOfSections() -> Int
     func numberOfItemsInSection(_ section: Int) -> Int
     func getHero(atIndexPath indexPath: IndexPath) -> Hero
+    func searchHero(withName name: String)
 }
 
 class HeroesListViewModel: HeroesListViewModelProtocol {
@@ -25,9 +26,29 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     var repository: HeroesRepositoryProtocol?
     weak var view: HeroesListPresentable?
     var lastIndexFetched: Int = 0
+    var wasSearching = false
     
     // MARK: - Protocol Methods
+    func searchHero(withName name: String) {
+        wasSearching = true
+        self.view?.startLoading()
+        repository?.searchHero(withName: name, completion: { [weak self] (response, error) in
+            if let heroes = response?.data?.results, error == nil {
+                self?.heroes = heroes
+                self?.view?.reloadList()
+                return
+            }
+            
+            self?.view?.showError(error ?? CustomError.generalError("Unexpected error!"))
+        })
+    }
+    
     func loadHeroes() {
+        if wasSearching {
+            wasSearching.toggle()
+            heroes.removeAll()
+            lastIndexFetched = 0
+        }
         self.view?.startLoading()
         repository?.fetchHeroesList(lastIndex: lastIndexFetched, completion: { [weak self] (response, error) in
             if let heroes = response?.data?.results, error == nil {
@@ -36,6 +57,8 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
                 self?.lastIndexFetched = self?.heroes.count ?? .init()
                 return
             }
+            
+            self?.view?.showError(error ?? CustomError.generalError("Unexpected error!"))
         })
     }
     

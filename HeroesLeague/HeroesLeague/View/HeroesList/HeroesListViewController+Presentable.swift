@@ -12,6 +12,7 @@ protocol HeroesListPresentable: class {
     func reloadList()
     func stopLoading()
     func startLoading()
+    func showError(_ error: Error)
 }
 
 extension HeroesListViewController: HeroesListPresentable {
@@ -32,6 +33,13 @@ extension HeroesListViewController: HeroesListPresentable {
         DispatchQueue.main.async {
             self.listTableView.reloadData()
             self.stopLoading()
+        }
+    }
+    
+    func showError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.removeBlurLoading()
+            self.alert(message: error.localizedDescription)
         }
     }
 }
