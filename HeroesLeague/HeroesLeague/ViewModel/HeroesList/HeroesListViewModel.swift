@@ -18,8 +18,9 @@ protocol HeroesListViewModelProtocol: class {
     func searchHero(withName name: String)
 }
 
-class HeroesListViewModel: HeroesListViewModelProtocol {
+class HeroesListViewModel: HeroesListViewModelProtocol, FavoriteHeroDelegate {
     
+    // MARK: - Properties
     var heroes: [Hero] = .init()
     var selectedHero: Hero?
     var coordinator: AppCoordinatorProtocol?
@@ -35,6 +36,7 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
         repository?.searchHero(withName: name, completion: { [weak self] (response, error) in
             if let heroes = response?.data?.results, error == nil {
                 self?.heroes = heroes
+                self?.updateResponseWithFavorites()
                 self?.view?.reloadList()
                 return
             }
@@ -53,6 +55,7 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
         repository?.fetchHeroesList(lastIndex: lastIndexFetched, completion: { [weak self] (response, error) in
             if let heroes = response?.data?.results, error == nil {
                 self?.heroes.append(contentsOf: heroes)
+                self?.updateResponseWithFavorites()
                 self?.view?.reloadList()
                 self?.lastIndexFetched = self?.heroes.count ?? .init()
                 return
@@ -82,4 +85,24 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     func getTitle() -> String {
         return "Heroes League"
     }
+    
+    // MARK: - Favorites Delegate and Favorite Helper Methods
+    func toggleFavorite(shouldSave: Bool, _ hero: Hero, _ heroDetails: [HeroAppearance]?, withThumbnail thumbnail: UIImage?) {
+        if shouldSave {
+            repository?.saveHeroLocally(hero, details: heroDetails, withThumbnail: thumbnail)
+            return
+        }
+        
+        repository?.deleteHeroLocally(hero)
+    }
+    
+    func updateResponseWithFavorites() {
+        let favorites: [Hero] = repository?.retriveFavorites() ?? .init()
+        let responseFavorites = heroes.filter { (hero) -> Bool in
+            return favorites.contains(where: { hero.id == $0.id })
+        }
+        
+        responseFavorites.forEach({ $0.isFavorite = true })
+    }
+    
 }

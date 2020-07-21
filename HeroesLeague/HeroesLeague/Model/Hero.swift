@@ -10,17 +10,31 @@ import Foundation
 
 class Hero: Codable {
     
-    let id : Int?
-    let name : String?
-    let description : String?
-    let modified : String?
-    let thumbnail : Thumbnail?
-    let resourceURI : String?
-    let comics : Resource?
-    let series : Resource?
-    let stories : Resource?
-    let events : Resource?
+    var id : Int?
+    var name : String?
+    var description : String?
+    var modified : String?
+    var thumbnail : Thumbnail?
+    var resourceURI : String?
+    var comics : Resource?
+    var series : Resource?
+    var stories : Resource?
+    var events : Resource?
     var isFavorite: Bool = false
+    var imageData: Data? = nil
+    
+    init() {
+        id = .init()
+        name = .init()
+        description = .init()
+        modified = .init()
+        thumbnail = nil
+        resourceURI = .init()
+        comics = nil
+        series = nil
+        stories = nil
+        events = nil
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, name, description, modified, thumbnail, resourceURI, comics, series, stories, events

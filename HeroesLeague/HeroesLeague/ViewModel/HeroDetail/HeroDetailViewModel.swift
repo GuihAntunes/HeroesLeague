@@ -38,7 +38,18 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     
     // MARK: - Protocol Methods
     func updateFavorites() {
+        guard let hero = selectedHero else { return }
+        var details: [HeroAppearance] = []
+        details.append(contentsOf: comics)
+        details.append(contentsOf: events)
+        details.append(contentsOf: stories)
+        details.append(contentsOf: series)
+        if hero.isFavorite {
+            repository?.saveHeroLocally(hero, details: details, withThumbnail: UIImage(data: hero.imageData ?? .init()))
+            return
+        }
         
+        repository?.deleteHeroLocally(hero)
     }
     
     func dismissScreen() {

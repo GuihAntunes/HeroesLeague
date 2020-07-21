@@ -18,9 +18,7 @@ protocol HeroDetailPresentable: class {
 extension HeroDetailViewController: HeroDetailPresentable {
     
     func startLoading() {
-        DispatchQueue.main.async {
-            self.addBlurLoading()
-        }
+        addBlurLoading()
     }
     
     func stopLoading() {

@@ -6,13 +6,7 @@
 //  Copyright © 2020 Guihsoft. All rights reserved.
 //
 
-import Foundation
-
-protocol HeroesRepositoryProtocol: class {
-    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
-    func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>)
-    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
-}
+import UIKit
 
 class MarvelService: HeroesRepositoryProtocol {
     
@@ -47,6 +41,19 @@ class MarvelService: HeroesRepositoryProtocol {
     
     func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
         requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.searchHero(name: name).request, completion: completion)
+    }
+    
+    func saveHeroLocally(_ hero: Hero, details: [HeroAppearance]?, withThumbnail thumbnail: UIImage? = nil) {
+        // Not necessary for API usage
+    }
+    
+    func deleteHeroLocally(_ hero: Hero) {
+        // Not necessary for API usage
+    }
+    
+    func retriveFavorites() -> [Hero]? {
+        // Not necessary for API usage
+        return nil
     }
     
 }

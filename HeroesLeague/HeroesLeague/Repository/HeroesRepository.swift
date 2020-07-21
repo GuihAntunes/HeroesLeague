@@ -6,7 +6,16 @@
 //  Copyright © 2020 Guihsoft. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol HeroesRepositoryProtocol: class {
+    func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
+    func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>)
+    func searchHero(withName name: String, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
+    func saveHeroLocally(_ hero: Hero, details: [HeroAppearance]?, withThumbnail thumbnail: UIImage?)
+    func deleteHeroLocally(_ hero: Hero)
+    func retriveFavorites() -> [Hero]?
+}
 
 class HeroesRepository: HeroesRepositoryProtocol {
     
@@ -55,6 +64,18 @@ class HeroesRepository: HeroesRepositoryProtocol {
                 completion(response, error)
             }
         }
+    }
+    
+    func saveHeroLocally(_ hero: Hero, details: [HeroAppearance]?, withThumbnail thumbnail: UIImage? = nil) {
+        coreDataService.saveHeroLocally(hero, details: details, withThumbnail: thumbnail)
+    }
+    
+    func deleteHeroLocally(_ hero: Hero) {
+        coreDataService.deleteHeroLocally(hero)
+    }
+    
+    func retriveFavorites() -> [Hero]? {
+        return coreDataService.retriveFavorites()
     }
     
 }
