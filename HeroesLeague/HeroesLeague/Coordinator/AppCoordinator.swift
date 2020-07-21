@@ -42,7 +42,9 @@ class AppCoordinator: AppCoordinatorProtocol {
     func presentNextStep() {
         switch state {
         case .list:
-            print("")
+            injector.heroDetailViewModel.coordinator = self
+            state = .detail
+            injector.navigationController.pushViewController(injector.heroDetailViewController, animated: true)
         case.detail:
             print("Nenhuma tela para frente neste fluxo")
         }

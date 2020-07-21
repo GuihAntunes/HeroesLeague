@@ -41,7 +41,8 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     }
     
     func selectHero(atIndexPath indexPath: IndexPath) {
-        self.selectedHero = heroes[indexPath.row]
+        selectedHero = heroes[indexPath.row]
+        coordinator?.presentNextStep()
     }
     
     func numberOfSections() -> Int {

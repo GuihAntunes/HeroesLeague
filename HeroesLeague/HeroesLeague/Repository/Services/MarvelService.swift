@@ -10,7 +10,7 @@ import Foundation
 
 protocol HeroesRepositoryProtocol: class {
     func fetchHeroesList(lastIndex index: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>)
+    func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>)
 }
 
 class MarvelService: HeroesRepositoryProtocol {
@@ -25,12 +25,23 @@ class MarvelService: HeroesRepositoryProtocol {
         requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.list(lastIndex: index).request, completion: completion)
     }
     
-    func fetchHeroDetails(forHero heroId: Int) {
+    func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>) {
+        let group: DispatchGroup = .init()
+        let detailsEndpoints = [HeroesEndpoints.comics(heroId: heroId).request, HeroesEndpoints.events(heroId: heroId).request, HeroesEndpoints.stories(heroId: heroId).request, HeroesEndpoints.series(heroId: heroId).request]
+        var completions: [MarvelCharacterDetailsResponse?] = .init()
+        var lastError: Error?
+        detailsEndpoints.forEach {
+            group.enter()
+            self.requester.request(model: MarvelCharacterDetailsResponse.self, $0) { (codable, error) in
+                completions.append(codable)
+                lastError = error
+                group.leave()
+            }
+        }
         
-    }
-    
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
-        requester.request(model: MarvelCharacterListResponse.self, HeroesEndpoints.heroDetail(heroId: id).request, completion: completion)
+        group.notify(queue: .global()) {
+            completion(completions, lastError)
+        }
     }
     
 }

@@ -36,6 +36,11 @@ class HeroDetailViewController: UIViewController {
     private func setupView() {
         title = viewModel?.getTitle()
         detailsListTableView.reloadData()
+        setBackButton(#selector(dismissScreen))
+    }
+    
+    @objc private func dismissScreen() {
+        viewModel?.dismissScreen()
     }
 
 }

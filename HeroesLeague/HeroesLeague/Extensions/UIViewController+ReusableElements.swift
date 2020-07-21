@@ -30,7 +30,7 @@ extension UIViewController {
     func setBackButton(_ backFunction: Selector) {
         navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .plain, target: self, action: backFunction)
-        newBackButton.title = "Voltar"
+        newBackButton.title = "Back"
         navigationItem.leftBarButtonItem = newBackButton
     }
     

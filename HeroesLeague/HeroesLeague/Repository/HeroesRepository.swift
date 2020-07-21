@@ -31,14 +31,16 @@ class HeroesRepository: HeroesRepositoryProtocol {
         }
     }
     
-    func fetchHeroesDetail(heroID id: Int, completion: @escaping RequesterCompletion<MarvelCharacterListResponse>) {
-        marvelService.fetchHeroesDetail(heroID: id) { [weak self] (response, error) in
-            if error != nil && !Reachability().isConnected {
-                self?.coreDataService.fetchHeroesDetail(heroID: id, completion: completion)
-                return
+    func fetchHeroDetails(forHero heroId: Int, completion: @escaping RequesterCompletion<[MarvelCharacterDetailsResponse?]>) {
+        DispatchQueue.global().async {
+            self.marvelService.fetchHeroDetails(forHero: heroId) { [weak self] (response, error) in
+                if error != nil && !Reachability().isConnected {
+                    self?.coreDataService.fetchHeroDetails(forHero: heroId, completion: completion)
+                    return
+                }
+                
+                completion(response, error)
             }
-            
-            completion(response, error)
         }
     }
     

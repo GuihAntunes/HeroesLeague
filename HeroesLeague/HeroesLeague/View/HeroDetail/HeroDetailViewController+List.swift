@@ -19,7 +19,15 @@ extension HeroDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return .init()
+        let cell: HeroDetailTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        if let details = viewModel?.getDetail(forIndexPath: indexPath) {
+            cell.setup(withDetails: details)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel?.getTitleForHeaderInSection(section)
     }
     
 }

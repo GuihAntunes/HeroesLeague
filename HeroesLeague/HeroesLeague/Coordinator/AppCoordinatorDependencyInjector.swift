@@ -46,6 +46,7 @@ class AppCoordinatorDependencyInjector {
     
     lazy var heroDetailViewModel: HeroDetailViewModel = {
         let viewModel: HeroDetailViewModel = .init()
+        viewModel.repository = HeroesRepository()
         viewModel.selectedHero = heroesListViewModel.selectedHero
         return viewModel
     }()

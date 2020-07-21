@@ -13,7 +13,8 @@ protocol HeroDetailViewModelProtocol: class {
     func numberOfSections() -> Int
     func numberOfItemsInSection(_ section: Int) -> Int
     func getTitleForHeaderInSection(_ section: Int) -> String
-    func getDetail(forIndexPath indexPath: IndexPath) -> (name: String, resource: String)
+    func getDetail(forIndexPath indexPath: IndexPath) -> (title: String, description: String)
+    func dismissScreen()
 }
 
 class HeroDetailViewModel: HeroDetailViewModelProtocol {
@@ -24,6 +25,9 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     var events: [HeroAppearance] = .init()
     var stories: [HeroAppearance] = .init()
     var series: [HeroAppearance] = .init()
+    var repository: HeroesRepositoryProtocol?
+    var coordinator: AppCoordinatorProtocol?
+    let sectionsTitles = ["Comics", "Events", "Stories", "Series"]
     var selectedHero: Hero? {
         didSet {
             getHeroDetails(forHero: selectedHero)
@@ -31,6 +35,10 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     }
     
     // MARK: - Protocol Methods
+    func dismissScreen() {
+        coordinator?.presentPreviousStep()
+    }
+    
     func getTitle() -> String {
         return selectedHero?.name ?? .init()
     }
@@ -54,7 +62,7 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
         }
     }
     
-    func getDetail(forIndexPath indexPath: IndexPath) -> (name: String, resource: String) {
+    func getDetail(forIndexPath indexPath: IndexPath) -> (title: String, description: String) {
         switch indexPath.section {
         case 0:
             return (comics[indexPath.row].title ?? .init(), comics[indexPath.row].description ?? .init())
@@ -74,24 +82,39 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     }
     
     func getTitleForHeaderInSection(_ section: Int) -> String {
-        switch section {
-        case 0:
-            return "Comics"
-        case 1:
-            return "Events"
-        case 2:
-            return "Stories"
-        case 3:
-            return "Series"
-        default:
-            return .init()
-        }
+        return sectionsTitles[section]
     }
     
     // MARK: - Private Methods
     
+    private func setupDetailsLists(withLists lists: [MarvelCharacterDetailsResponse?]?) {
+        guard let lists = lists else { return }
+        lists.forEach({
+            guard let response = $0, let details = response.data?.results, let firstDetail = details.first?.resourceURI else { return }
+            
+            if firstDetail.contains(sectionsTitles[0].lowercased()) {
+                comics = details
+            }
+            
+            if firstDetail.contains(sectionsTitles[1].lowercased()) {
+                events = details
+            }
+            
+            if firstDetail.contains(sectionsTitles[2].lowercased()) {
+                stories = details
+            }
+            
+            if firstDetail.contains(sectionsTitles[3].lowercased()) {
+                series = details
+            }
+        })
+    }
+    
     private func getHeroDetails(forHero hero: Hero?) {
-        guard let hero = hero else { return }
-        
+        guard let hero = hero, let heroId = hero.id else { return }
+        repository?.fetchHeroDetails(forHero: heroId, completion: { [weak self] (response, error) in
+            self?.setupDetailsLists(withLists: response)
+            self?.view?.reloadList()
+        })
     }
 }

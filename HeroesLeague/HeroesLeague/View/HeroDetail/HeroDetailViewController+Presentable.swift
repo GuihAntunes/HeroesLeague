@@ -9,11 +9,15 @@
 import UIKit
 
 protocol HeroDetailPresentable: class {
-    
+    func reloadList()
 }
 
 extension HeroDetailViewController: HeroDetailPresentable {
     
-    
+    func reloadList() {
+        DispatchQueue.main.async {
+            self.detailsListTableView.reloadData()
+        }
+    }
     
 }
