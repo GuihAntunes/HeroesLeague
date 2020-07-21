@@ -67,6 +67,11 @@ class CoreDataService: HeroesRepositoryProtocol {
                     }
                 }
                 
+                comics = comics.filter({ $0.id == heroId })
+                events = events.filter({ $0.id == heroId })
+                stories = stories.filter({ $0.id == heroId })
+                series = series.filter({ $0.id == heroId })
+                
                 let comicsResponse = MarvelCharacterDetailsResponse(code: .init(), status: .init(), copyright: .init(), data: DetailsList(offset: .init(), limit: .init(), total: .init(), count: .init(), results: comics))
                 let eventsResponse = MarvelCharacterDetailsResponse(code: .init(), status: .init(), copyright: .init(), data: DetailsList(offset: .init(), limit: .init(), total: .init(), count: .init(), results: events))
                 let storiesResponse = MarvelCharacterDetailsResponse(code: .init(), status: .init(), copyright: .init(), data: DetailsList(offset: .init(), limit: .init(), total: .init(), count: .init(), results: stories))

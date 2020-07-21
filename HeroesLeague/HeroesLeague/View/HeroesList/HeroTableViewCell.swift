@@ -46,7 +46,9 @@ class HeroTableViewCell: UITableViewCell {
         setupFavoriteButton()
         
         if let imageData = hero.imageData, !Reachability().isConnected {
-            heroThumbnail.image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                self.heroThumbnail.image = UIImage(data: imageData)
+            }
             return
         }
         
