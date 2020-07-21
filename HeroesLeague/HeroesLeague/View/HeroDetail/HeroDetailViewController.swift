@@ -39,10 +39,17 @@ class HeroDetailViewController: UIViewController {
         title = viewModel?.getTitle()
         detailsListTableView.reloadData()
         setBackButton(#selector(dismissScreen))
+        setRightButton(#selector(toggleFavoriteFlag), isFavorite: viewModel?.selectedHero?.isFavorite)
     }
     
     @objc private func dismissScreen() {
         viewModel?.dismissScreen()
+    }
+    
+    @objc private func toggleFavoriteFlag() {
+        viewModel?.selectedHero?.isFavorite.toggle()
+        setRightButton(#selector(toggleFavoriteFlag), isFavorite: viewModel?.selectedHero?.isFavorite)
+        viewModel?.updateFavorites()
     }
 
 }

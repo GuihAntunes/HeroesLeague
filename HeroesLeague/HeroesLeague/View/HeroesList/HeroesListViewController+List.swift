@@ -33,6 +33,7 @@ extension HeroesListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
         viewModel?.selectHero(atIndexPath: indexPath)
     }
     

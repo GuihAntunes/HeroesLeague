@@ -39,7 +39,9 @@ extension HeroesListViewController: HeroesListPresentable {
     func showError(_ error: Error) {
         DispatchQueue.main.async {
             self.removeBlurLoading()
-            self.alert(message: error.localizedDescription)
+            self.alert(title: "Oops!", message: error.localizedDescription) { (action) in
+                self.viewModel?.loadHeroes()
+            }
         }
     }
 }

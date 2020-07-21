@@ -9,6 +9,8 @@
 import UIKit
 
 protocol HeroDetailViewModelProtocol: class {
+    var selectedHero: Hero? { get }
+    func updateFavorites()
     func getTitle() -> String
     func numberOfSections() -> Int
     func numberOfItemsInSection(_ section: Int) -> Int
@@ -35,6 +37,10 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     }
     
     // MARK: - Protocol Methods
+    func updateFavorites() {
+        
+    }
+    
     func dismissScreen() {
         coordinator?.presentPreviousStep()
     }
@@ -122,4 +128,5 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
             self?.view?.showError(error ?? CustomError.generalError("Unexpected error!"))
         })
     }
+    
 }

@@ -20,5 +20,9 @@ class Hero: Codable {
     let series : Resource?
     let stories : Resource?
     let events : Resource?
-    let isFavorite: Bool = false
+    var isFavorite: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, description, modified, thumbnail, resourceURI, comics, series, stories, events
+    }
 }

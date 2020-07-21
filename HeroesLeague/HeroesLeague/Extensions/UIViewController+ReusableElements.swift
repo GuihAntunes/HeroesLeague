@@ -49,6 +49,12 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = newBackButton
     }
     
+    func setRightButton(_ rightButtonFuction: Selector, isFavorite flag: Bool?) {
+        guard let flag = flag else { return }
+        let rightButton = UIBarButtonItem(title: flag ? "❤️" : "◎", style: .plain, target: self, action: rightButtonFuction)
+        navigationItem.rightBarButtonItem = rightButton
+    }
+    
 }
 
 // MARK: - Loading Indicator

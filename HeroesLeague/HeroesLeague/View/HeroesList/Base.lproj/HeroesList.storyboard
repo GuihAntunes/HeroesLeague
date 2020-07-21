@@ -35,24 +35,37 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-h2-koA">
-                                                    <rect key="frame" x="94" y="39.5" width="308" height="21"/>
+                                                    <rect key="frame" x="94" y="39.5" width="252" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-tJ-KGQ">
+                                                    <rect key="frame" x="358" y="28" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="BDp-B4-w1t"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Uqo-vI-Ssb"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jbR-tJ-KGQ" secondAttribute="trailing" constant="12" id="45Y-3a-DED"/>
+                                                <constraint firstItem="jbR-tJ-KGQ" firstAttribute="centerY" secondItem="leB-Ae-alz" secondAttribute="centerY" id="8Fh-fD-p7i"/>
                                                 <constraint firstItem="CpX-qj-wp5" firstAttribute="leading" secondItem="leB-Ae-alz" secondAttribute="leading" constant="12" id="TBf-Dx-xmm"/>
                                                 <constraint firstItem="H1C-h2-koA" firstAttribute="centerY" secondItem="CpX-qj-wp5" secondAttribute="centerY" id="TcG-GN-1MZ"/>
                                                 <constraint firstItem="H1C-h2-koA" firstAttribute="leading" secondItem="CpX-qj-wp5" secondAttribute="trailing" constant="12" id="gJf-Kv-lhr"/>
+                                                <constraint firstItem="jbR-tJ-KGQ" firstAttribute="leading" secondItem="H1C-h2-koA" secondAttribute="trailing" constant="12" id="hb2-sc-k2y"/>
                                                 <constraint firstAttribute="bottom" secondItem="CpX-qj-wp5" secondAttribute="bottom" constant="15" id="omN-XR-OYU"/>
                                                 <constraint firstItem="CpX-qj-wp5" firstAttribute="top" secondItem="leB-Ae-alz" secondAttribute="top" constant="15" id="trp-aX-Szx"/>
                                                 <constraint firstItem="CpX-qj-wp5" firstAttribute="centerY" secondItem="leB-Ae-alz" secondAttribute="centerY" id="xPL-7w-upg"/>
-                                                <constraint firstAttribute="trailing" secondItem="H1C-h2-koA" secondAttribute="trailing" constant="12" id="yw9-03-nCL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="jbR-tJ-KGQ" id="ecS-27-8oR"/>
                                             <outlet property="heroNameLabel" destination="H1C-h2-koA" id="Mta-uO-itf"/>
                                             <outlet property="heroThumbnail" destination="CpX-qj-wp5" id="ajO-3R-sWu"/>
                                         </connections>

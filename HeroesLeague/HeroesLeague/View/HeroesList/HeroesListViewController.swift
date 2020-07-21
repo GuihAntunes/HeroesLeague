@@ -17,6 +17,7 @@ class HeroesListViewController: UIViewController {
     // MARK: - Properties
     weak var viewModel: HeroesListViewModelProtocol?
     var searchIsActive = false
+    var selectedIndexPath: IndexPath?
     
     // MARK: - View Life Cycle Methods
     override func viewDidLoad() {
@@ -24,6 +25,11 @@ class HeroesListViewController: UIViewController {
         setupTableView()
         setupView()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateFavoriteIfNeeded()
     }
     
     // MARK: - Setup Methods
@@ -39,6 +45,11 @@ class HeroesListViewController: UIViewController {
     
     private func loadData() {
         viewModel?.loadHeroes()
+    }
+    
+    private func updateFavoriteIfNeeded() {
+        guard let indexPath = selectedIndexPath else { return }
+        listTableView.reloadRows(at: [indexPath], with: .none)
     }
 
 }
