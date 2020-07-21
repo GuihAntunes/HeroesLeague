@@ -17,6 +17,7 @@ class AppCoordinatorDependencyInjector {
         navigation.navigationBar.prefersLargeTitles = false
         navigation.navigationBar.barStyle = .black
         navigation.navigationBar.tintColor = .white
+        navigation.addCustomTransitioning()
         return navigation
     }()
     
