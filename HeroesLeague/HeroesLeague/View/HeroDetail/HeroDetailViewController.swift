@@ -31,6 +31,8 @@ class HeroDetailViewController: UIViewController {
     private func setupTableView() {
         detailsListTableView.dataSource = self
         detailsListTableView.delegate = self
+        detailsListTableView.estimatedRowHeight = 80
+        detailsListTableView.rowHeight = UITableView.automaticDimension
     }
     
     private func setupView() {

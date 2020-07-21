@@ -20,5 +20,5 @@ class Hero: Codable {
     let series : Resource?
     let stories : Resource?
     let events : Resource?
-    
+    let isFavorite: Bool = false
 }

@@ -31,6 +31,7 @@ extension HeroDetailViewController: HeroDetailPresentable {
     
     func reloadList() {
         DispatchQueue.main.async {
+            self.detailsListTableView.separatorStyle = .singleLine
             self.detailsListTableView.reloadData()
             self.stopLoading()
         }
@@ -38,7 +39,7 @@ extension HeroDetailViewController: HeroDetailPresentable {
     
     func showError(_ error: Error) {
         DispatchQueue.main.async {
-            self.removeBlurLoading()
+            self.stopLoading()
             self.alert(message: error.localizedDescription)
         }
     }
