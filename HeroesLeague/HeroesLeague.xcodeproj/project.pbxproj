@@ -10,6 +10,9 @@
 		0E483D3124C711CE00ABA516 /* HeroesListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E483D3024C711CE00ABA516 /* HeroesListViewController+SearchBar.swift */; };
 		0E483D3424C7447E00ABA516 /* CoreDataHeroModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E483D3224C7447E00ABA516 /* CoreDataHeroModel.xcdatamodeld */; };
 		0E483D3624C74A9B00ABA516 /* FavoriteHeroDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E483D3524C74A9B00ABA516 /* FavoriteHeroDelegate.swift */; };
+		0E50828F24C76FFC00C3A684 /* HeroesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50828E24C76FFC00C3A684 /* HeroesListViewModelTests.swift */; };
+		0E50829124C771BA00C3A684 /* HeroListResponseExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E50829024C771BA00C3A684 /* HeroListResponseExample.json */; };
+		0E50829324C7790D00C3A684 /* HeroListResponseExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E50829024C771BA00C3A684 /* HeroListResponseExample.json */; };
 		0E7CF95E24C5DE9B0029EBC7 /* HeroesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */; };
 		0E7CF96024C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */; };
 		0E7CF96424C5FFB20029EBC7 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */; };
@@ -40,8 +43,6 @@
 		0EA78FEE24C30EED00B09326 /* HeroesList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA78FEC24C30EED00B09326 /* HeroesList.storyboard */; };
 		0EA78FF024C30EEE00B09326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA78FEF24C30EEE00B09326 /* Assets.xcassets */; };
 		0EA78FF324C30EEE00B09326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA78FF124C30EEE00B09326 /* LaunchScreen.storyboard */; };
-		0EA78FFE24C30EEE00B09326 /* HeroesLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA78FFD24C30EEE00B09326 /* HeroesLeagueTests.swift */; };
-		0EA7900924C30EEE00B09326 /* HeroesLeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7900824C30EEE00B09326 /* HeroesLeagueUITests.swift */; };
 		0EA7901E24C30FB400B09326 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7901D24C30FB400B09326 /* Requester.swift */; };
 		0EA7902024C313B000B09326 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7901F24C313B000B09326 /* Reachability.swift */; };
 		0EA7902324C3151E00B09326 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7902224C3151E00B09326 /* Endpoint.swift */; };
@@ -55,19 +56,14 @@
 			remoteGlobalIDString = 0EA78FE224C30EED00B09326;
 			remoteInfo = HeroesLeague;
 		};
-		0EA7900524C30EEE00B09326 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0EA78FDB24C30EED00B09326 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0EA78FE224C30EED00B09326;
-			remoteInfo = HeroesLeague;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E483D3024C711CE00ABA516 /* HeroesListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroesListViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		0E483D3324C7447E00ABA516 /* CoreDataHeroModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHeroModel.xcdatamodel; sourceTree = "<group>"; };
 		0E483D3524C74A9B00ABA516 /* FavoriteHeroDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHeroDelegate.swift; sourceTree = "<group>"; };
+		0E50828E24C76FFC00C3A684 /* HeroesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewModelTests.swift; sourceTree = "<group>"; };
+		0E50829024C771BA00C3A684 /* HeroListResponseExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HeroListResponseExample.json; sourceTree = "<group>"; };
 		0E7CF95D24C5DE9B0029EBC7 /* HeroesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewModel.swift; sourceTree = "<group>"; };
 		0E7CF95F24C5E08C0029EBC7 /* HeroesListViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroesListViewController+Presentable.swift"; sourceTree = "<group>"; };
 		0E7CF96324C5FFB20029EBC7 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,11 +97,7 @@
 		0EA78FF224C30EEE00B09326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EA78FF424C30EEE00B09326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EA78FF924C30EEE00B09326 /* HeroesLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EA78FFD24C30EEE00B09326 /* HeroesLeagueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesLeagueTests.swift; sourceTree = "<group>"; };
 		0EA78FFF24C30EEE00B09326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EA7900424C30EEE00B09326 /* HeroesLeagueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesLeagueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EA7900824C30EEE00B09326 /* HeroesLeagueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesLeagueUITests.swift; sourceTree = "<group>"; };
-		0EA7900A24C30EEE00B09326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EA7901D24C30FB400B09326 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		0EA7901F24C313B000B09326 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		0EA7902224C3151E00B09326 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -120,13 +112,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0EA78FF624C30EEE00B09326 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EA7900124C30EEE00B09326 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -210,7 +195,6 @@
 			children = (
 				0EA78FE524C30EED00B09326 /* HeroesLeague */,
 				0EA78FFC24C30EEE00B09326 /* HeroesLeagueTests */,
-				0EA7900724C30EEE00B09326 /* HeroesLeagueUITests */,
 				0EA78FE424C30EED00B09326 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -220,7 +204,6 @@
 			children = (
 				0EA78FE324C30EED00B09326 /* HeroesLeague.app */,
 				0EA78FF924C30EEE00B09326 /* HeroesLeagueTests.xctest */,
-				0EA7900424C30EEE00B09326 /* HeroesLeagueUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,19 +228,11 @@
 		0EA78FFC24C30EEE00B09326 /* HeroesLeagueTests */ = {
 			isa = PBXGroup;
 			children = (
-				0EA78FFD24C30EEE00B09326 /* HeroesLeagueTests.swift */,
 				0EA78FFF24C30EEE00B09326 /* Info.plist */,
+				0E50829024C771BA00C3A684 /* HeroListResponseExample.json */,
+				0E50828E24C76FFC00C3A684 /* HeroesListViewModelTests.swift */,
 			);
 			path = HeroesLeagueTests;
-			sourceTree = "<group>";
-		};
-		0EA7900724C30EEE00B09326 /* HeroesLeagueUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0EA7900824C30EEE00B09326 /* HeroesLeagueUITests.swift */,
-				0EA7900A24C30EEE00B09326 /* Info.plist */,
-			);
-			path = HeroesLeagueUITests;
 			sourceTree = "<group>";
 		};
 		0EA7901624C30EF400B09326 /* ViewModel */ = {
@@ -360,24 +335,6 @@
 			productReference = 0EA78FF924C30EEE00B09326 /* HeroesLeagueTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0EA7900324C30EEE00B09326 /* HeroesLeagueUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0EA7901324C30EEE00B09326 /* Build configuration list for PBXNativeTarget "HeroesLeagueUITests" */;
-			buildPhases = (
-				0EA7900024C30EEE00B09326 /* Sources */,
-				0EA7900124C30EEE00B09326 /* Frameworks */,
-				0EA7900224C30EEE00B09326 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0EA7900624C30EEE00B09326 /* PBXTargetDependency */,
-			);
-			name = HeroesLeagueUITests;
-			productName = HeroesLeagueUITests;
-			productReference = 0EA7900424C30EEE00B09326 /* HeroesLeagueUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -392,10 +349,6 @@
 						CreatedOnToolsVersion = 11.6;
 					};
 					0EA78FF824C30EEE00B09326 = {
-						CreatedOnToolsVersion = 11.6;
-						TestTargetID = 0EA78FE224C30EED00B09326;
-					};
-					0EA7900324C30EEE00B09326 = {
 						CreatedOnToolsVersion = 11.6;
 						TestTargetID = 0EA78FE224C30EED00B09326;
 					};
@@ -416,7 +369,6 @@
 			targets = (
 				0EA78FE224C30EED00B09326 /* HeroesLeague */,
 				0EA78FF824C30EEE00B09326 /* HeroesLeagueTests */,
-				0EA7900324C30EEE00B09326 /* HeroesLeagueUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -428,6 +380,7 @@
 			files = (
 				0EA78FF324C30EEE00B09326 /* LaunchScreen.storyboard in Resources */,
 				0E7CF96724C613880029EBC7 /* HeroDetail.storyboard in Resources */,
+				0E50829324C7790D00C3A684 /* HeroListResponseExample.json in Resources */,
 				0EA78FF024C30EEE00B09326 /* Assets.xcassets in Resources */,
 				0EA78FEE24C30EED00B09326 /* HeroesList.storyboard in Resources */,
 			);
@@ -437,13 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EA7900224C30EEE00B09326 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0E50829124C771BA00C3A684 /* HeroListResponseExample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,15 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EA78FFE24C30EEE00B09326 /* HeroesLeagueTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0EA7900024C30EEE00B09326 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0EA7900924C30EEE00B09326 /* HeroesLeagueUITests.swift in Sources */,
+				0E50828F24C76FFC00C3A684 /* HeroesListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,11 +451,6 @@
 			isa = PBXTargetDependency;
 			target = 0EA78FE224C30EED00B09326 /* HeroesLeague */;
 			targetProxy = 0EA78FFA24C30EEE00B09326 /* PBXContainerItemProxy */;
-		};
-		0EA7900624C30EEE00B09326 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0EA78FE224C30EED00B09326 /* HeroesLeague */;
-			targetProxy = 0EA7900524C30EEE00B09326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -736,46 +670,6 @@
 			};
 			name = Release;
 		};
-		0EA7901424C30EEE00B09326 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 458HLK5M83;
-				INFOPLIST_FILE = HeroesLeagueUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.guihsoft.HeroesLeagueUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HeroesLeague;
-			};
-			name = Debug;
-		};
-		0EA7901524C30EEE00B09326 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 458HLK5M83;
-				INFOPLIST_FILE = HeroesLeagueUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.guihsoft.HeroesLeagueUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HeroesLeague;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -802,15 +696,6 @@
 			buildConfigurations = (
 				0EA7901124C30EEE00B09326 /* Debug */,
 				0EA7901224C30EEE00B09326 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0EA7901324C30EEE00B09326 /* Build configuration list for PBXNativeTarget "HeroesLeagueUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0EA7901424C30EEE00B09326 /* Debug */,
-				0EA7901524C30EEE00B09326 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
