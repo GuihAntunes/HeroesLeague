@@ -50,4 +50,10 @@ class AppCoordinatorDependencyInjector {
         viewModel.selectedHero = heroesListViewModel.selectedHero
         return viewModel
     }()
+    
+    // MARK: - Helper Methods
+    
+    func injectNewHero() {
+        heroDetailViewModel.selectedHero = heroesListViewModel.selectedHero
+    }
 }

@@ -42,6 +42,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     func presentNextStep() {
         switch state {
         case .list:
+            injector.injectNewHero()
             injector.heroDetailViewModel.coordinator = self
             state = .detail
             injector.navigationController.pushViewController(injector.heroDetailViewController, animated: true)

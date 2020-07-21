@@ -30,7 +30,6 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     func loadHeroes() {
         self.view?.startLoading()
         repository?.fetchHeroesList(lastIndex: lastIndexFetched, completion: { [weak self] (response, error) in
-            self?.view?.stopLoading()
             if let heroes = response?.data?.results, error == nil {
                 self?.heroes.append(contentsOf: heroes)
                 self?.view?.reloadList()

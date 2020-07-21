@@ -17,16 +17,21 @@ protocol HeroesListPresentable: class {
 extension HeroesListViewController: HeroesListPresentable {
     
     func startLoading() {
-        
+        DispatchQueue.main.async {
+            self.addBlurLoading()
+        }
     }
     
     func stopLoading() {
-        
+        DispatchQueue.main.async {
+            self.removeBlurLoading()
+        }
     }
     
     func reloadList() {
         DispatchQueue.main.async {
             self.listTableView.reloadData()
+            self.stopLoading()
         }
     }
 }

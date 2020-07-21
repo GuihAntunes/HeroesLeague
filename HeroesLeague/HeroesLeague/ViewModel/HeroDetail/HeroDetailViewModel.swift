@@ -112,6 +112,7 @@ class HeroDetailViewModel: HeroDetailViewModelProtocol {
     
     private func getHeroDetails(forHero hero: Hero?) {
         guard let hero = hero, let heroId = hero.id else { return }
+        view?.startLoading()
         repository?.fetchHeroDetails(forHero: heroId, completion: { [weak self] (response, error) in
             self?.setupDetailsLists(withLists: response)
             self?.view?.reloadList()
